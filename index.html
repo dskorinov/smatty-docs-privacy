@@ -28,12 +28,12 @@
 <body>
 
 <h1>Privacy Policy for Smatty Docs</h1>
-<p class="updated">Last updated: August 18, 2026</p>
+<p class="updated">Last updated: August 19, 2026</p>
 
 <p>This privacy policy explains how the Smatty Docs mobile application ("the App") handles user data.</p>
 
 <h2>Summary</h2>
-<p class="lede">The App does not collect, store, transmit, or share any personal data. The documents you add, the text taken from them, the search index built from that text and the answers you get are all created and kept on your device, and are never sent to any server operated by us or by anyone else.</p>
+<p class="lede">The App does not collect, store, transmit, or share any personal data. The documents you add, the text taken from them, the search index built from that text and the answers you get are all created and kept on your device, and are never sent to any server operated by us or by anyone else. The App makes exactly one kind of network request: downloading a language model file that you have chosen, described under <em>Downloading a model</em> below.</p>
 
 <h2>Your documents</h2>
 <p>The App exists to answer questions about files you choose to add to it. Those files are handled as follows:</p>
@@ -58,18 +58,29 @@
   <li>Usage analytics or crash reports</li>
   <li>Photos, video or audio</li>
   <li>The content of your documents, or any question you ask about them</li>
-  <li>Any data transmitted to external servers</li>
+  <li>Any data transmitted to external servers — we operate none</li>
 </ul>
 
 <h2>Answers to your questions</h2>
 <p>Questions you ask are answered by a language model that runs on your device. The question and the passages from your documents that are used to answer it stay on the device throughout.</p>
 <p>The App does not have an option to send your documents or questions to an online service. If such an option is ever added, it will be off by default, will require your explicit consent before anything is sent, will send only the passages relevant to the question rather than whole documents, and this page will be updated to say exactly what is sent and to whom before that version is published.</p>
 
+<h2>Downloading a model</h2>
+<p>No language model is included in the App, so before it can answer anything you choose one and download it. This is the one time the App makes a network request, and it is worth describing exactly:</p>
+<ul>
+  <li>Model files are downloaded from <strong>Hugging Face</strong> (huggingface.co), a third-party hosting service, at your request and to your choice of model.</li>
+  <li>Your device therefore contacts Hugging Face directly. As with any download, Hugging Face can see your IP address and which file you asked for. We do not receive that information, and we do not operate a server involved in it.</li>
+  <li>Nothing about you is attached to the request. No account, no identifier, and nothing from your documents.</li>
+  <li>If you enter a Hugging Face access token — needed only for models whose publisher restricts access — it is stored in the Android keystore on your device and sent only to Hugging Face, to authenticate that download.</li>
+  <li>Downloaded models are stored in the App's own private storage alongside your documents, and are deleted when you delete them or uninstall the App.</li>
+</ul>
+<p>Hugging Face's own privacy policy governs what they do with a request their servers receive. If you would rather not contact them at all, the App simply has no model and cannot answer questions; everything else in it still works.</p>
+
 <h2>Permissions</h2>
 <p>The App asks for no runtime permissions. Files are added through the Android system file picker, which hands the App the single file you chose and grants no access to anything else.</p>
 
 <h2>Third-party services</h2>
-<p>The App does not integrate any third-party analytics, advertising, or data-tracking services.</p>
+<p>The App does not integrate any third-party analytics, advertising, or data-tracking services. The only third party it contacts at all is Hugging Face, when you download a model, as described above.</p>
 
 <h2>Accounts and login</h2>
 <p>The App does not require registration or login, and does not store any account information.</p>
