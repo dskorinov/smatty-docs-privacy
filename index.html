@@ -154,7 +154,7 @@ permission to use the camera so that it can read a QR code you point it at.</p>
 <p>This privacy policy explains how the Smatty Docs mobile application ("the App") handles user data.</p>
 
 <h3>Summary</h3>
-<p class="lede">The App does not collect, store, transmit, or share any personal data. The documents you add, the text taken from them, the search index built from that text and the answers you get are all created and kept on your device, and are never sent to any server operated by us or by anyone else. The App itself makes exactly one kind of network request: downloading a language model file that you have chosen, described under <em>Downloading a model</em> below. The document scanner it opens is provided by Google Play services and sends Google diagnostic data, but never your pages; see <em>Scanning paper documents</em>.</p>
+<p class="lede">The App does not collect, store, transmit, or share any personal data. The documents you add, the text taken from them, the search index built from that text and the answers you get are all created and kept on your device, and are never sent to any server operated by us. Nothing about them is sent anywhere else either, unless you turn on cloud mode. The App itself makes exactly one kind of network request: downloading a language model file that you have chosen, described under <em>Downloading a model</em> below. The document scanner it opens is provided by Google Play services and sends Google diagnostic data, but never your pages; see <em>Scanning paper documents</em>. If you choose to, you can move the models to the cloud; then document text is sent to GreenPT, as described under <em>Cloud mode</em>.</p>
 
 <h3>Your documents</h3>
 <p>The App exists to answer questions about files you choose to add to it. Those files are handled as follows:</p>
@@ -162,7 +162,7 @@ permission to use the camera so that it can read a QR code you point it at.</p>
   <li>A document you add is copied into the App's own private storage area on your device. Other apps on the phone cannot read that area.</li>
   <li>The copy is encrypted at rest, with a key held by the Android keystore on your device.</li>
   <li>The text extracted from a document, the search index built from it, and your chat history are stored the same way, in the same place.</li>
-  <li>Nothing in that storage is uploaded, backed up to our servers, or shared with any third party — because there are no servers and no third parties.</li>
+  <li>Nothing in that storage is uploaded, backed up to our servers, or shared with any third party. The one exception is cloud mode, if you turn it on: then text from your documents goes to GreenPT, as described below.</li>
   <li>Deleting a document in the App deletes the file, its text and its index entries together. Uninstalling the App removes all of it.</li>
 </ul>
 <p>The App reads a file only at the moment you pick it or finish a scan, and only that file. It does not scan your device for other documents, photos or media.</p>
@@ -178,7 +178,7 @@ permission to use the camera so that it can read a QR code you point it at.</p>
   <li>Location data</li>
   <li>Usage analytics or crash reports (Google's document scanner sends Google its own diagnostics; see below)</li>
   <li>Photos, video or audio</li>
-  <li>The content of your documents, or any question you ask about them</li>
+  <li>The content of your documents, or any question you ask about them (in cloud mode they go to GreenPT, not to us)</li>
   <li>Any data transmitted to external servers — we operate none</li>
 </ul>
 
@@ -193,7 +193,17 @@ permission to use the camera so that it can read a QR code you point it at.</p>
 
 <h3>Answers to your questions</h3>
 <p>Questions you ask are answered by a language model that runs on your device. The question and the passages from your documents that are used to answer it stay on the device throughout.</p>
-<p>The App does not have an option to send your documents or questions to an online service. If such an option is ever added, it will be off by default, will require your explicit consent before anything is sent, will send only the passages relevant to the question rather than whole documents, and this section will be updated to say exactly what is sent and to whom before that version is published.</p>
+<p>By default the question and the passages used to answer it stay on the device throughout. If you turn on cloud mode, they are sent to GreenPT instead, as described next.</p>
+
+<h3>Cloud mode</h3>
+<p>In the Models tab you can choose to run the models in the cloud instead of on the phone. This is off by default and the App asks for your consent before the first switch. The only provider is <strong>GreenPT</strong> (GreenPT BV, Utrecht, Netherlands), whose servers are in the EU, and you use it with your own GreenPT API key.</p>
+<ul>
+  <li>While cloud mode is on, the App sends GreenPT: your questions and recent conversation, the passages found in your documents for each question, and the full text of every document while it is indexed (the search index is built by GreenPT's embedding model).</li>
+  <li>The document files themselves are not sent, and nothing is sent to us — we operate no server involved in it.</li>
+  <li>Your GreenPT API key is stored in the Android keystore on your device and sent only to GreenPT, to authenticate those requests.</li>
+  <li>GreenPT's own privacy policy and terms govern what they do with what they receive.</li>
+  <li>Switching back to the phone stops all of this; the index is then rebuilt on the device.</li>
+</ul>
 
 <h3>Downloading a model</h3>
 <p>No language model is included in the App, so before it can answer anything you choose one and download it. This is the one time the App makes a network request, and it is worth describing exactly:</p>
@@ -210,7 +220,7 @@ permission to use the camera so that it can read a QR code you point it at.</p>
 <p>The App asks for no runtime permissions. Files are added through the Android system file picker, which hands the App the single file you chose and grants no access to anything else. Scanning uses Google Play services' camera permission, not one of the App's.</p>
 
 <h3>Third-party services</h3>
-<p>The App does not integrate any analytics, advertising, or data-tracking services of its own. The third parties involved are Hugging Face, when you download a model, and Google, whose document scanner sends the diagnostics described above when you scan.</p>
+<p>The App does not integrate any analytics, advertising, or data-tracking services of its own. The third parties involved are Hugging Face, when you download a model, Google, whose document scanner sends the diagnostics described above when you scan, and GreenPT, only if you turn on cloud mode.</p>
 
 <h3>Accounts and login</h3>
 <p>The App does not require registration or login, and does not store any account information.</p>
