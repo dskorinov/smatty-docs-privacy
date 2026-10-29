@@ -149,12 +149,12 @@ permission to use the camera so that it can read a QR code you point it at.</p>
 
 <section id="smatty-docs" class="app">
 <h2>Smatty Docs</h2>
-<p class="meta">com.smattypatty.smatty_docs · Last updated: August 19, 2026</p>
+<p class="meta">com.smattypatty.smatty_docs · Last updated: October 29, 2026</p>
 
 <p>This privacy policy explains how the Smatty Docs mobile application ("the App") handles user data.</p>
 
 <h3>Summary</h3>
-<p class="lede">The App does not collect, store, transmit, or share any personal data. The documents you add, the text taken from them, the search index built from that text and the answers you get are all created and kept on your device, and are never sent to any server operated by us or by anyone else. The App makes exactly one kind of network request: downloading a language model file that you have chosen, described under <em>Downloading a model</em> below.</p>
+<p class="lede">The App does not collect, store, transmit, or share any personal data. The documents you add, the text taken from them, the search index built from that text and the answers you get are all created and kept on your device, and are never sent to any server operated by us or by anyone else. The App itself makes exactly one kind of network request: downloading a language model file that you have chosen, described under <em>Downloading a model</em> below. The document scanner it opens is provided by Google Play services and sends Google diagnostic data, but never your pages; see <em>Scanning paper documents</em>.</p>
 
 <h3>Your documents</h3>
 <p>The App exists to answer questions about files you choose to add to it. Those files are handled as follows:</p>
@@ -165,7 +165,7 @@ permission to use the camera so that it can read a QR code you point it at.</p>
   <li>Nothing in that storage is uploaded, backed up to our servers, or shared with any third party — because there are no servers and no third parties.</li>
   <li>Deleting a document in the App deletes the file, its text and its index entries together. Uninstalling the App removes all of it.</li>
 </ul>
-<p>The App reads a file only at the moment you pick it, and only the file you picked. It does not scan your device for other documents, photos or media.</p>
+<p>The App reads a file only at the moment you pick it or finish a scan, and only that file. It does not scan your device for other documents, photos or media.</p>
 
 <h3>Backups and device transfer</h3>
 <p>The App is excluded from Android's automatic cloud backup and from device-to-device transfer. Your library therefore does not travel to Google's backup servers or to a new phone by those routes. This also means that if you lose the device or uninstall the App, the library is gone — keep your own copies of anything important.</p>
@@ -176,10 +176,19 @@ permission to use the camera so that it can read a QR code you point it at.</p>
   <li>Personal information (name, email, phone number, etc.)</li>
   <li>Device identifiers or advertising IDs</li>
   <li>Location data</li>
-  <li>Usage analytics or crash reports</li>
+  <li>Usage analytics or crash reports (Google's document scanner sends Google its own diagnostics; see below)</li>
   <li>Photos, video or audio</li>
   <li>The content of your documents, or any question you ask about them</li>
   <li>Any data transmitted to external servers — we operate none</li>
+</ul>
+
+<h3>Scanning paper documents</h3>
+<p>The Scan tab opens Google's document scanner, part of Google Play services (ML Kit). It finds the edges of each page in the camera picture, takes the picture, crops it, and hands the App one PDF of all the pages. That PDF is then treated like any document you add: encrypted into the App's private storage, and the scanner's temporary copy is deleted.</p>
+<ul>
+  <li>The pictures are processed on your device. Neither the App nor the scanner uploads them.</li>
+  <li>The camera is used through Google Play services' own camera permission; the App does not ask for one.</li>
+  <li>The first time it is used, Google Play services may download the scanner itself.</li>
+  <li>ML Kit sends Google diagnostic and usage data: device information (manufacturer, model, Android version), the App's package name and version, a per-installation identifier that is not meant to identify you or your device, performance figures, scanner settings, error codes and the sizes of input and output. Google states this is encrypted in transit, used for diagnostics and usage analytics, and not shared with third parties. It contains no picture, page or text from your documents. Google's privacy policy governs it.</li>
 </ul>
 
 <h3>Answers to your questions</h3>
@@ -198,16 +207,16 @@ permission to use the camera so that it can read a QR code you point it at.</p>
 <p>Hugging Face's own privacy policy governs what they do with a request their servers receive. If you would rather not contact them at all, the App simply has no model and cannot answer questions; everything else in it still works.</p>
 
 <h3>Permissions</h3>
-<p>The App asks for no runtime permissions. Files are added through the Android system file picker, which hands the App the single file you chose and grants no access to anything else.</p>
+<p>The App asks for no runtime permissions. Files are added through the Android system file picker, which hands the App the single file you chose and grants no access to anything else. Scanning uses Google Play services' camera permission, not one of the App's.</p>
 
 <h3>Third-party services</h3>
-<p>The App does not integrate any third-party analytics, advertising, or data-tracking services. The only third party it contacts at all is Hugging Face, when you download a model, as described above.</p>
+<p>The App does not integrate any analytics, advertising, or data-tracking services of its own. The third parties involved are Hugging Face, when you download a model, and Google, whose document scanner sends the diagnostics described above when you scan.</p>
 
 <h3>Accounts and login</h3>
 <p>The App does not require registration or login, and does not store any account information.</p>
 
 <h3>Children's privacy</h3>
-<p>The App does not knowingly collect any information from anyone, including children under 13, as it collects no data at all.</p>
+<p>The App does not knowingly collect any information from anyone, including children under 13. The only data that leaves the device is the scanner diagnostics described above, which Google receives and which contain nothing from your documents.</p>
 
 <h3>What this policy does not promise</h3>
 <p>The protections above are aimed at other apps on your phone and at data leaving the device by accident. They are not designed to defend a device that has been rooted or compromised, and they do not stop someone who is holding your phone while it is unlocked from opening the App. Locking your device with a PIN, pattern or biometrics is what protects against that.</p>
